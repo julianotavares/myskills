@@ -2,13 +2,15 @@ import React from 'react'
 import { TouchableOpacity, Text, StyleSheet } from 'react-native'
 
 export function Button() {
-          <TouchableOpacity
-            style={styles.button}
-            activeOpacity={.7}
-            // onPress={handleAddNewSkill}
-            > 
-            <Text style={styles.buttonText}>Add</Text>
-          </TouchableOpacity>
+  return (
+      <TouchableOpacity
+        style={styles.button}
+        activeOpacity={.7}
+        // onPress={handleAddNewSkill}
+        >
+        <Text style={styles.buttonText}>Add</Text>
+      </TouchableOpacity>
+         )
 }
 
 const styles = StyleSheet.create({
@@ -19,7 +21,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 20
   },
-
   buttonText: {
     color: '#FFF',
     fontSize: 17,

@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import { 
-  View, 
-  Text, 
-  StyleSheet, 
-  SafeAreaView, 
-  TextInput, 
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  TextInput,
   Platform,
   TouchableOpacity
  } from 'react-native'
-import Button from '../components/Button';
+import {Button} from '../components/Button';
 
 export function Home() {
     const [newSkill, setNewSkill] = useState();
@@ -22,12 +22,12 @@ export function Home() {
     <>
       <SafeAreaView style={styles.container}>
 
-        <Text 
+        <Text
           style={styles.title}
           >Welcome, Tavares
         </Text>
-        <TextInput 
-          style={styles.input} 
+        <TextInput
+          style={styles.input}
           placeholder="New skill"
           placeholderTextColor='#555'
           onChangeText={setNewSkill}
@@ -101,6 +101,6 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 22,
     fontWeight: 'bold',
-    
+
   }
 })
