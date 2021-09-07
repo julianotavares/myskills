@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import {
-  View,
   Text,
   StyleSheet,
   SafeAreaView,
   TextInput,
   Platform,
-  TouchableOpacity
+  FlatList,
  } from 'react-native'
 import {Button} from '../components/Button';
+import { SkillCard } from '../components/SkillCard';
 
 export function Home() {
     const [newSkill, setNewSkill] = useState();
@@ -33,24 +33,20 @@ export function Home() {
           onChangeText={setNewSkill}
           />
 
-          <Button />
+          <Button onPress={handleAddNewSkill} />
 
           <Text
            style={[styles.title, { marginVertical: 20}]}
           >
             My Skills
           </Text>
-
-          {
-            mySkills.map(skill => (
-
-            <TouchableOpacity key={skill} style={styles.buttonSkill}>
-              <Text style={styles.textSkill}>
-                {skill}
-              </Text>
-            </TouchableOpacity>
-            ))
-          }
+          <FlatList
+            data ={mySkills}
+            keyExtractor={item => item}
+            renderItem={({ item }) => (
+              <SkillCard skill={item} />
+            )}
+          />
 
       </SafeAreaView>
     </>
@@ -77,30 +73,4 @@ const styles = StyleSheet.create({
     marginTop: 30,
     borderRadius: 7,
   },
-  button: {
-    backgroundColor: '#A370F7',
-    padding: 15,
-    borderRadius: 7,
-    alignItems: 'center',
-    marginTop: 20
-  },
-  buttonText: {
-    color: '#FFF',
-    fontSize: 17,
-    fontWeight: 'bold'
-  },
-  buttonSkill: {
-    backgroundColor: '#1F1E25',
-    padding: 15,
-    borderRadius: 250,
-    alignItems: 'center',
-    marginVertical: 10
-  },
-
-  textSkill: {
-    color: '#FFF',
-    fontSize: 22,
-    fontWeight: 'bold',
-
-  }
 })
